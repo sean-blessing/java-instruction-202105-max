@@ -1,6 +1,7 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.NumberFormat;
+import java.util.Scanner;
 
 public class PrimitivesApp {
 
@@ -104,13 +105,6 @@ public class PrimitivesApp {
 		System.out.println("Sales Tax: \t"+currency.format(salesTax));
 		System.out.println("total: \t"+currency.format(total));
 		
-		
-		
-		
-		
-		
-		
-
 	}
 
 }
