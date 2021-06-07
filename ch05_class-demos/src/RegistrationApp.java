@@ -7,14 +7,19 @@ public class RegistrationApp {
 		System.out.println("Welcome to the Registration App");
 		Scanner sc = new Scanner(System.in);
 
-		String fName = getNextString(sc, "Enter first name: ");
+		String choice = "y";
+		while (choice.equalsIgnoreCase("y")) {
 
-		String lName = getNextString(sc, "Enter last name: ");
+			String fName = getNextString(sc, "Enter first name: ");
 
-		int age = getNextIntWithinRange(sc, "Enter your age (years): ", 1, 100);
+			String lName = getNextString(sc, "Enter last name: ");
 
-		System.out.println("Welcome, " + fName + " " + lName + "(" + age + ")");
+			int age = getNextIntWithinRange(sc, "Enter your age (years): ", 1, 100);
 
+			System.out.println("Welcome, " + fName + " " + lName + "(" + age + ")");
+
+			choice = getNextString(sc, "Continue? (y/n) ");
+		}
 		sc.close();
 		System.out.println("Bye");
 
@@ -39,16 +44,16 @@ public class RegistrationApp {
 
 	private static int getNextInt(Scanner sc, String prompt) {
 		int nbr = 0;
-		while (true) {
+		boolean isValid = false;
+		while (!isValid) {
 			System.out.print(prompt);
 			if (sc.hasNextInt()) {
 				nbr = sc.nextInt();
-				break;
+				isValid = true;
 			} else {
 				System.out.println("Invalid whole number.  Try again.");
-				// discard input
-				sc.nextLine();
-				continue;
+				if (sc.hasNextLine())
+					sc.nextLine();
 			}
 		}
 //			try {
@@ -61,7 +66,7 @@ public class RegistrationApp {
 //				sc.nextLine();
 //				continue;
 //			}
-	return nbr;
+		return nbr;
 
 	}
 
@@ -72,5 +77,17 @@ public class RegistrationApp {
 		System.out.print(prompt);
 		return sc.next();
 	}
+
+	// Having some weird issues clearing the scanner of old data.
+	// Built this method to remedy.
+//	private static Scanner discardScannerEntries(Scanner sc) {
+//		// while there's still stuff in the scanner,
+//		// call nextLine to get rid of it!
+//		while (sc.hasNext()) {
+//			sc.nextLine();
+//		}
+//		// that didn't work... how about resetting sc to new Scanner?
+//		return new Scanner(System.in);
+//	}
 
 }
