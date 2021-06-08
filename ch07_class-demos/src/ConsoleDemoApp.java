@@ -2,9 +2,11 @@
 public class ConsoleDemoApp {
 
 	public static void main(String[] args) {
-		String name = Console.getString("name?");
-		int nbr = Console.getInt("nbr?");
+		String code = Console.getString("Code?");
+		String desc = Console.getString("Description?");
 		double price = Console.getDouble("Price?", 0, 100000);
+		
+		Product p = new Product(code, desc, price);
 		
 
 	}
