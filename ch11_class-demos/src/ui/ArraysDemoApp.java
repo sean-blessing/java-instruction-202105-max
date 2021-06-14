@@ -9,6 +9,11 @@ public class ArraysDemoApp {
 	public static void main(String[] args) {
 		System.out.println("Welcome");
 		
+		System.out.println("main method args: ");
+		for (String arg: args) {
+			System.out.println(arg);
+		}
+		
 		//p. 355 - basic arrays
 		double[] prices = new double[4];
 		prices[0] = 11.12;
