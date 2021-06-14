@@ -16,7 +16,7 @@ public class AnimalCounterApp {
 		
 		
 		Sheep s2 = (Sheep)s.clone();
-		
+		s2.setName("Dolly");
 		count(s2,3);
 		
 		count(s,1);
