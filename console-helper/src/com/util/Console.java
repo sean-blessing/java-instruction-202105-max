@@ -7,8 +7,8 @@ public class Console {
 
     /**
      * 
-     * @param prompt
-     * @return
+     * @param prompt Prompt the user for input 
+     * @return the next line from user input
      */
     public static String getString(String prompt) {
         System.out.print(prompt);
@@ -19,8 +19,8 @@ public class Console {
 
     /**
      * 
-     * @param prompt
-     * @return
+     * @param prompt Prompt the user for input
+     * @return The next line of input from the user
      */
     public static String getLine(String prompt) {
         System.out.print(prompt);
@@ -31,9 +31,9 @@ public class Console {
     
     /**
      * 
-     * @param prompt
-     * @param isRequired
-     * @return
+     * @param prompt Prompt the user for input
+     * @param isRequired boolean determining if this input is required
+     * @return The next line of input from the user
      */
     public static String getString(String prompt, boolean isRequired) {
         String s = "";
@@ -52,10 +52,10 @@ public class Console {
 
     /**
      * 
-     * @param prompt
-     * @param s1
-     * @param s2
-     * @return
+     * @param prompt Prompt the user for input
+     * @param s1 The first acceptable string
+     * @param s2 The second acceptable string
+     * @return The value entered by the user
      */
     public static String getString(String prompt, String s1, String s2) {
         String s = "";
@@ -74,8 +74,8 @@ public class Console {
 
     /**
      * 
-     * @param prompt
-     * @return
+     * @param prompt Prompt the user for input
+     * @return The integer entered by the user
      */
     public static int getInt(String prompt) {
         int i = 0;
@@ -96,10 +96,10 @@ public class Console {
     /**
      * This method will return a valid integer within the 
      * min max range (inclusive).
-     * @param prompt
-     * @param min
-     * @param max
-     * @return
+     * @param prompt Prompt the user for input
+     * @param min The minimum acceptable value
+     * @param max The maximum acceptable value
+     * @return The integer entered by the user
      */
     public static int getInt(String prompt, int min, int max) {
         int i = 0;
@@ -121,8 +121,8 @@ public class Console {
 
     /**
      * 
-     * @param prompt
-     * @return
+     * @param prompt Prompt the user for input
+     * @return The valid double entered by the user
      */
     public static double getDouble(String prompt) {
         double d = 0;
@@ -140,6 +140,13 @@ public class Console {
         return d;
     }
 
+    /**
+     * 
+     * @param prompt Prompt the user for input
+     * @param min The minimum acceptable value
+     * @param max The minimum acceptable value
+     * @return The valid double entered by the user
+     */
     public static double getDouble(String prompt, double min, double max) {
         double d = 0;
         boolean isValid = false;
