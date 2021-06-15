@@ -5,6 +5,11 @@ public class Console {
     
     private static Scanner sc = new Scanner(System.in);
 
+    /**
+     * 
+     * @param prompt
+     * @return
+     */
     public static String getString(String prompt) {
         System.out.print(prompt);
         String s = sc.next();  // read user entry
@@ -12,6 +17,11 @@ public class Console {
         return s;
     }
 
+    /**
+     * 
+     * @param prompt
+     * @return
+     */
     public static String getLine(String prompt) {
         System.out.print(prompt);
         String s = sc.nextLine();  // read user entry
@@ -19,6 +29,12 @@ public class Console {
         return s;
     }
     
+    /**
+     * 
+     * @param prompt
+     * @param isRequired
+     * @return
+     */
     public static String getString(String prompt, boolean isRequired) {
         String s = "";
         boolean isValid = false;
@@ -34,6 +50,13 @@ public class Console {
         return s;
     }
 
+    /**
+     * 
+     * @param prompt
+     * @param s1
+     * @param s2
+     * @return
+     */
     public static String getString(String prompt, String s1, String s2) {
         String s = "";
         boolean isValid = false;
@@ -49,6 +72,11 @@ public class Console {
         return s;
     }
 
+    /**
+     * 
+     * @param prompt
+     * @return
+     */
     public static int getInt(String prompt) {
         int i = 0;
         boolean isValid = false;
@@ -65,17 +93,25 @@ public class Console {
         return i;
     }
 
+    /**
+     * This method will return a valid integer within the 
+     * min max range (inclusive).
+     * @param prompt
+     * @param min
+     * @param max
+     * @return
+     */
     public static int getInt(String prompt, int min, int max) {
         int i = 0;
         boolean isValid = false;
         while (!isValid) {
             i = getInt(prompt);
-            if (i <= min) {
+            if (i < min) {
                 System.out.println(
-                        "Error! Number must be greater than " + min + ".");
-            } else if (i >= max) {
+                        "Error! Number must be greater than or equal to " + min + ".");
+            } else if (i > max) {
                 System.out.println(
-                        "Error! Number must be less than " + max + ".");
+                        "Error! Number must be less than or equal to " + max + ".");
             } else {
                 isValid = true;
             }
@@ -83,6 +119,11 @@ public class Console {
         return i;
     }
 
+    /**
+     * 
+     * @param prompt
+     * @return
+     */
     public static double getDouble(String prompt) {
         double d = 0;
         boolean isValid = false;
