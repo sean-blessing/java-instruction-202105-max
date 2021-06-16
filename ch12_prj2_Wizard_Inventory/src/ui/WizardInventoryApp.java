@@ -6,14 +6,17 @@ import java.util.List;
 import com.util.Console;
 
 public class WizardInventoryApp {
+	
 	static List<String> items;
-
-	public static void main(String[] args) {
+	static {
 		// initialize items
 		items = new ArrayList<>();
 		items.add("wooden staff");
 		items.add("wizard hat");
 		items.add("cloth shoes");
+	}
+
+	public static void main(String[] args) {
 
 		System.out.println("Welcome to the Wizard Inventory App!");
 		System.out.println();
@@ -60,6 +63,7 @@ public class WizardInventoryApp {
 
 	private static void dropItem(int itemNbr) {
 		if (validateItemNumber(itemNbr)) {
+			
 			String deletedItem = items.remove(itemNbr-1);
 			System.out.println(deletedItem+" was dropped.");
 		} else {
