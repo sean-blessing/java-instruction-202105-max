@@ -15,10 +15,10 @@ public class ItemManagerApp {
 		items = new ArrayList<>();
 		items.add(new Item(1, "Laptop"));
 		items.add(new Item(2, "Monitor"));
-		items.add(new Item(3, "Monitor"));
+		items.add(new Item(3, "M"));
 		
 		// implement CRUD functionality to allow a user to 
-		// maintain the list of items:  Create, Read (List, Get by id),
+		// maintain the list of items:  Create, Read (List, Get by number),
 		// Update, and Delete
 		
 		System.out.println("Welcome to the Item Manager App!");
@@ -32,19 +32,22 @@ public class ItemManagerApp {
 				// list all items - loop through and print!
 				System.out.println("Items:");
 				System.out.println("=================");
+				for (Item i: items) {
+					System.out.println(i);
+				}
 				break;
 			case 2:
-				// get an item by id
-				// - prompt user for id to retrieve
-				// - loop through items and retrieve item
-				//   that matches the id entered
-				// - print the item
+				// get an item by number
+				// - prompt user for number to retrieve
+				int nbr = Console.getInt("Item number to retrieve: ");
+				Item item = getItem(nbr);
 				System.out.println("Get an Item:");
 				System.out.println("=================");
+				System.out.println(item);
 				break;
 			case 3:
 				// add an item
-				// - prompt user for id and description
+				// - prompt user for number and description
 				// - create new instance of item
 				// - add item to items list
 				// - display success msg (Item added!)
@@ -53,9 +56,9 @@ public class ItemManagerApp {
 				break;
 			case 4:
 				// update an item
-				// - prompt user for id to retrieve
+				// - prompt user for number to retrieve
 				// - loop through items and retrieve item
-				//   that matches the id entered
+				//   that matches the number entered
 				// - if item not found, print message
 				// - if item found, prompt user for new description
 				// - change the item description (hint: use setter)
@@ -65,9 +68,9 @@ public class ItemManagerApp {
 				break;
 			case 5:
 				// delete an item
-				// - prompt user for id to retrieve
+				// - prompt user for number to retrieve
 				// - loop through items and retrieve item
-				//   that matches the id entered
+				//   that matches the number entered
 				// - if item not found, print message
 				// - if item found, delete it and display success msg
 				System.out.println("Delete an Item:");
@@ -83,6 +86,19 @@ public class ItemManagerApp {
 			System.out.println();
 		}
 		System.out.println("Bye!");
+	}
+	
+	private static Item getItem(int itemNbr) {
+		Item foundItem = null;
+		// - loop through items and retrieve item
+		//   that matches the number entered
+		// - print the item
+		for (Item item: items) {
+			if (item.getNumber() == itemNbr) {
+				foundItem = item;
+			}
+		}
+		return foundItem;
 	}
 	
 	private static void displayMenu() {
