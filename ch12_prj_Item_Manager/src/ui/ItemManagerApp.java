@@ -9,13 +9,14 @@ import business.Item;
 
 public class ItemManagerApp {
 	private static List<Item> items;
+	private static final String ITEM_NOT_FOUND_MSG = "No item found for number: ";
 
 	public static void main(String[] args) {
 		// initialize items list and add some office items
 		items = new ArrayList<>();
 		items.add(new Item(1, "Laptop"));
 		items.add(new Item(2, "Monitor"));
-		items.add(new Item(3, "M"));
+		items.add(new Item(3, "Mouse"));
 		
 		// implement CRUD functionality to allow a user to 
 		// maintain the list of items:  Create, Read (List, Get by number),
@@ -43,7 +44,12 @@ public class ItemManagerApp {
 				Item item = getItem(nbr);
 				System.out.println("Get an Item:");
 				System.out.println("=================");
-				System.out.println(item);
+				if (item!=null) {
+					System.out.println(item);
+				}
+				else {
+					System.out.println(ITEM_NOT_FOUND_MSG + nbr);
+				}
 				break;
 			case 3:
 				// add an item
@@ -53,6 +59,10 @@ public class ItemManagerApp {
 				// - display success msg (Item added!)
 				System.out.println("Add an Item:");
 				System.out.println("=================");
+				nbr = Console.getInt("Item number: ");
+				String desc = Console.getLine("Item description: ");
+				items.add(new Item(nbr, desc));
+				System.out.println("Item added!");
 				break;
 			case 4:
 				// update an item
@@ -65,6 +75,15 @@ public class ItemManagerApp {
 				//   and display success msg
 				System.out.println("Update an Item:");
 				System.out.println("=================");
+				nbr = Console.getInt("Item number to retrieve: ");
+				item = getItem(nbr);
+				if (item!=null) {
+					item.setDescription(Console.getLine("New description: "));
+					System.out.println("Item updated!");
+				}
+				else {
+					System.out.println(ITEM_NOT_FOUND_MSG + nbr);
+				}
 				break;
 			case 5:
 				// delete an item
@@ -75,6 +94,15 @@ public class ItemManagerApp {
 				// - if item found, delete it and display success msg
 				System.out.println("Delete an Item:");
 				System.out.println("=================");
+				nbr = Console.getInt("Item number to delete: ");
+				item = getItem(nbr);
+				if (item!=null) {
+					items.remove(item);
+					System.out.println("Item deleted: "+item);
+				}
+				else {
+					System.out.println(ITEM_NOT_FOUND_MSG + nbr);
+				}
 				break;
 			case 9:
 				// exit
