@@ -3,6 +3,7 @@ package ui;
 import com.util.Console;
 
 import business.Item;
+import db.ItemDB;
 import interfaces.DAO;
 import text.ItemTextFile;
 
@@ -15,7 +16,7 @@ public class ItemManagerApp {
 		
 		// creating instance of ItemTextFile should create our file
 		// on the first run of this app.
-		DAO<Item> itemsDAO = new ItemTextFile();
+		DAO<Item> itemsDAO = new ItemDB();
 		
 		int command = 0;
 		while (command != 9) {
@@ -49,9 +50,9 @@ public class ItemManagerApp {
 					// add
 					System.out.println("Add Item");
 					System.out.println("=============================");
-					id = Console.getInt("ID: ");
+					//id = Console.getInt("ID: ");  -> w/ a db we no longer want to set id
 					String desc = Console.getLine("Description: ");
-					if (itemsDAO.add(new Item(id, desc))) {
+					if (itemsDAO.add(new Item(desc))) {
 						System.out.println("Item added!");
 					}
 					else {
