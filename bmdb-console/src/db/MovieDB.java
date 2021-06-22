@@ -46,8 +46,8 @@ public class MovieDB extends BaseDB implements DAO<Movie>{
 		int id = rs.getInt(1);
 		String title = rs.getString(2);
 		int year = rs.getInt(3);
-		String rating = rs.getString(3);
-		String director = rs.getString(4);
+		String rating = rs.getString(4);
+		String director = rs.getString(5);
 		Movie movie = new Movie(id, title, year, rating, director);
 		return movie;
 	}
