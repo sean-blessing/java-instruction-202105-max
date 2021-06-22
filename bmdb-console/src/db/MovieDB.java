@@ -7,15 +7,7 @@ import java.util.List;
 import business.Movie;
 import interfaces.DAO;
 
-public class MovieDB implements DAO<Movie>{
-	
-	private Connection getConnection() throws SQLException {
-		String dbUrl = "jdbc:mysql://localhost:3306/bmdb";
-		String username = "bmdb_user";
-		String pwd = "sesame";
-		Connection conn = DriverManager.getConnection(dbUrl, username, pwd);
-		return conn;
-	}
+public class MovieDB extends BaseDB implements DAO<Movie>{
 
 	@Override
 	public Movie get(int id) {

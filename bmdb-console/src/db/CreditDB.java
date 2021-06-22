@@ -10,15 +10,7 @@ import business.Credit;
 import business.Movie;
 import interfaces.DAO;
 
-public class CreditDB implements DAO<Credit>{
-	
-	private Connection getConnection() throws SQLException {
-		String dbUrl = "jdbc:mysql://localhost:3306/bmdb";
-		String username = "bmdb_user";
-		String pwd = "sesame";
-		Connection conn = DriverManager.getConnection(dbUrl, username, pwd);
-		return conn;
-	}
+public class CreditDB extends BaseDB implements DAO<Credit>{
 
 	@Override
 	public Credit get(int id) {
