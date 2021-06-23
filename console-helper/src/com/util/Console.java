@@ -164,4 +164,14 @@ public class Console {
         }
         return d;
     }
+    /**
+     * Prompt the user for a y/n response and convert to a boolean
+     * @param prompt Yes or no reponse
+     * @return boolean
+     */
+    public static boolean getBoolean(String prompt) {
+    	String resp = getString(prompt, "y", "n");
+    	return resp.equalsIgnoreCase("y") ? true : false;
+    	
+    }
 }
